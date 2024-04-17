@@ -14,7 +14,6 @@ html, body {
     height: 10%;
     width: 100%;
     color: white;
-    background-color: #23395d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +40,7 @@ html, body {
 }
 
 .file-layout {
-    background-color: midnightblue;
+    background-color: cornflowerblue;
 }
 
 .drag-line {

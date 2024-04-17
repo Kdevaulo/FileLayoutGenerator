@@ -1,55 +1,112 @@
 document.addEventListener('DOMContentLoaded', () => {
     const data = {
         fields: [
-            "Public Fields", "Public Readonly Fields", "Public Static Fields",
-            "Public Static Readonly Fields", "Protected Fields", "Protected Readonly Fields",
-            "Protected Static Fields", "Protected Static Readonly Fields", "Internal Fields",
-            "Internal Readonly Fields", "Internal Static Fields", "Internal Static Readonly Fields",
-            "Protected Internal Fields", "Protected Internal Readonly Fields",
-            "Protected Internal Static Fields", "Protected Internal Static Readonly Fields",
-            "Private Fields", "Private Readonly Fields", "Private Static Fields",
-            "Private Static Readonly Fields", "Private Protected Fields", "Private Protected Readonly Fields",
-            "Private Protected Static Fields", "Private Protected Static Readonly Fields"
+            { access: "Public", static: false, readonly: false, type: "Fields" },
+            { access: "Public", static: false, readonly: true, type: "Fields" },
+            { access: "Public", static: true, readonly: false, type: "Fields" },
+            { access: "Public", static: true, readonly: true, type: "Fields" },
+            { access: "Protected", static: false, readonly: false, type: "Fields" },
+            { access: "Protected", static: false, readonly: true, type: "Fields" },
+            { access: "Protected", static: true, readonly: false, type: "Fields" },
+            { access: "Protected", static: true, readonly: true, type: "Fields" },
+            { access: "Internal", static: false, readonly: false, type: "Fields" },
+            { access: "Internal", static: false, readonly: true, type: "Fields" },
+            { access: "Internal", static: true, readonly: false, type: "Fields" },
+            { access: "Internal", static: true, readonly: true, type: "Fields" },
+            { access: "Private", static: false, readonly: false, type: "Fields" },
+            { access: "Private", static: false, readonly: true, type: "Fields" },
+            { access: "Private", static: true, readonly: false, type: "Fields" },
+            { access: "Private", static: true, readonly: true, type: "Fields" },
+            { access: "Protected Internal", static: false, readonly: false, type: "Fields" },
+            { access: "Protected Internal", static: false, readonly: true, type: "Fields" },
+            { access: "Protected Internal", static: true, readonly: false, type: "Fields" },
+            { access: "Protected Internal", static: true, readonly: true, type: "Fields" },
+            { access: "Private Protected", static: false, readonly: false, type: "Fields" },
+            { access: "Private Protected", static: false, readonly: true, type: "Fields" },
+            { access: "Private Protected", static: true, readonly: false, type: "Fields" },
+            { access: "Private Protected", static: true, readonly: true, type: "Fields" }
         ],
         properties: [
-            "Public Properties", "Public Static Properties", "Protected Properties",
-            "Protected Static Properties", "Internal Properties", "Internal Static Properties",
-            "Protected Internal Properties", "Protected Internal Static Properties", "Private Properties",
-            "Private Static Properties", "Private Protected Properties", "Private Protected Static Properties"
+            { access: "Public", static: false, type: "Properties" },
+            { access: "Public", static: true, type: "Properties" },
+            { access: "Protected", static: false, type: "Properties" },
+            { access: "Protected", static: true, type: "Properties" },
+            { access: "Internal", static: false, type: "Properties" },
+            { access: "Internal", static: true, type: "Properties" },
+            { access: "Private", static: false, type: "Properties" },
+            { access: "Private", static: true, type: "Properties" },
+            { access: "Protected Internal", static: false, type: "Properties" },
+            { access: "Protected Internal", static: true, type: "Properties" },
+            { access: "Private Protected", static: false, type: "Properties" },
+            { access: "Private Protected", static: true, type: "Properties" }
         ],
         methods: [
-            "Public Methods", "Public Static Methods", "Protected Methods", "Protected Static Methods",
-            "Internal Methods", "Internal Static Methods", "Protected Internal Methods",
-            "Protected Internal Static Methods", "Private Methods", "Private Static Methods",
-            "Private Protected Methods", "Private Protected Static Methods"
+            { access: "Public", static: false, type: "Methods" },
+            { access: "Public", static: true, type: "Methods" },
+            { access: "Protected", static: false, type: "Methods" },
+            { access: "Protected", static: true, type: "Methods" },
+            { access: "Internal", static: false, type: "Methods" },
+            { access: "Internal", static: true, type: "Methods" },
+            { access: "Private", static: false, type: "Methods" },
+            { access: "Private", static: true, type: "Methods" },
+            { access: "Protected Internal", static: false, type: "Methods" },
+            { access: "Protected Internal", static: true, type: "Methods" },
+            { access: "Private Protected", static: false, type: "Methods" },
+            { access: "Private Protected", static: true, type: "Methods" }
         ],
         constructors: [
-            "Public Constructors", "Static Constructors", "Protected Constructors",
-            "Internal Constructors", "Protected Internal Constructors", "Private Constructors",
-            "Private Protected Constructors"
+            { access: "Public", static: false, type: "Constructors" },
+            { access: "Protected", static: false, type: "Constructors" },
+            { access: "Internal", static: false, type: "Constructors" },
+            { access: "Private", static: false, type: "Constructors" }
         ],
         events: [
-            "Public Events", "Public Static Events", "Protected Events", "Protected Static Events",
-            "Internal Events", "Internal Static Events", "Protected Internal Events",
-            "Protected Internal Static Events", "Private Events", "Private Static Events",
-            "Private Protected Events", "Private Protected Static Events"
-        ],
-        delegates: [
-            "Public Delegate", "Protected Delegate", "Internal Delegate",
-            "Protected Internal Delegate", "Private Delegate", "Private Protected Delegate"
+            { access: "Public", static: false, type: "Events" },
+            { access: "Public", static: true, type: "Events" },
+            { access: "Protected", static: false, type: "Events" },
+            { access: "Protected", static: true, type: "Events" },
+            { access: "Internal", static: false, type: "Events" },
+            { access: "Internal", static: true, type: "Events" },
+            { access: "Private", static: false, type: "Events" },
+            { access: "Private", static: true, type: "Events" },
+            { access: "Protected Internal", static: false, type: "Events" },
+            { access: "Protected Internal", static: true, type: "Events" },
+            { access: "Private Protected", static: false, type: "Events" },
+            { access: "Private Protected", static: true, type: "Events" }
         ],
         nested: [
-            "Public Class", "Protected Class", "Internal Class",
-            "Protected Internal Class", "Private Class", "Private Protected Class",
-            "Public Interface", "Protected Interface", "Internal Interface",
-            "Protected Internal Interface", "Private Interface", "Private Protected Interface",
-            "Public Enum", "Protected Enum", "Internal Enum",
-            "Protected Internal Enum", "Private Enum", "Private Protected Enum"
+            { access: "Public", static: false, type: "Class" },
+            { access: "Public", static: true, type: "Class" },
+            { access: "Protected", static: false, type: "Class" },
+            { access: "Protected", static: true, type: "Class" },
+            { access: "Internal", static: false, type: "Class" },
+            { access: "Internal", static: true, type: "Class" },
+            { access: "Private", static: false, type: "Class" },
+            { access: "Private", static: true, type: "Class" },
+            { access: "Protected Internal", static: false, type: "Class" },
+            { access: "Protected Internal", static: true, type: "Class" },
+            { access: "Private Protected", static: false, type: "Class" },
+            { access: "Private Protected", static: true, type: "Class" },
+            
+            { access: "Public", type: "Enum" },
+            { access: "Protected", type: "Enum" },
+            { access: "Internal", type: "Enum" },
+            { access: "Private", type: "Enum" },
+            { access: "Protected Internal", type: "Enum" },
+            { access: "Private Protected", type: "Enum" },
+
+            { access: "Public", type: "Interface" },
+            { access: "Protected", type: "Interface" },
+            { access: "Internal", type: "Interface" },
+            { access: "Private", type: "Interface" },
+            { access: "Protected Internal", type: "Interface" },
+            { access: "Private Protected", type: "Interface" }
         ]
     };
 
     const itemsContainer = document.querySelector('.items-container');
     const itemsQueue = document.querySelector('.items-queue');
+    const layoutText = document.querySelector('.layout-text');
 
     itemsContainer.addEventListener('click', moveItem);
     itemsQueue.addEventListener('click', moveItem);
@@ -74,16 +131,74 @@ document.addEventListener('DOMContentLoaded', () => {
             groupDiv.appendChild(title);
 
             data[category].forEach(item => {
+                // Создание ID в новом порядке
+                const itemID = [
+                    item.access,
+                    item.static ? 'static' : '',
+                    item.readonly ? 'readonly' : '',
+                    item.type.replace(/\s+/g, '-')
+                ].filter(Boolean).join('-').toLowerCase();
+
                 const pItem = document.createElement('p');
-                pItem.id = `item-${item.replace(/\s+/g, '-')}`;
+                pItem.id = `item-${itemID}`;
                 pItem.setAttribute('draggable', 'true');
                 pItem.setAttribute('data-group', category);
-                pItem.innerHTML = `<button class="move-btn">➔</button> ${item}`;
+                pItem.setAttribute('data-kind', item.type);
+                pItem.setAttribute('data-access', item.access);
+                pItem.setAttribute('data-static', item.static ? 'true' : 'false');
+                pItem.setAttribute('data-readonly', item.readonly ? 'true' : 'false');
+
+                // Обновление строки в соответствии с новым порядком отображения
+                const itemDescription = [
+                    item.access,                         // Модификатор доступа
+                    item.static ? 'Static' : '',         // Static
+                    item.readonly ? 'Readonly' : '',     // Readonly
+                    item.type                            // Type (Kind)
+                ].filter(Boolean).join(' ');
+
+                pItem.innerHTML = `<button class="move-btn">➔</button> ${itemDescription}`;
                 groupDiv.appendChild(pItem);
             });
 
             container.appendChild(groupDiv);
         });
+    }
+
+    function updateQueueText() {
+        const items = itemsQueue.querySelectorAll('p');
+        const ids = Array.from(items).map(item => item.id).join(', ');
+        layoutText.textContent = generateXMLLayout(items);
+    }
+
+    function generateXMLLayout(items) {
+        let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        xml += '<Patterns xmlns="urn:schemas-jetbrains-com:member-reordering-patterns">\n';
+
+        items.forEach(item => {
+            const isStatic = item.hasAttribute('data-static') && item.getAttribute('data-static') === 'true';
+            const isReadonly = item.hasAttribute('data-readonly') && item.getAttribute('data-readonly') === 'true';
+
+            xml += `  <Entry DisplayName="${item.textContent.trim()}">\n`;
+            xml += '    <Entry.Match>\n';
+            xml += `      <And>\n`;
+            xml += `        <Kind Is="${item.getAttribute('data-kind')}"/>\n`;
+            xml += `        <Access Is="${item.getAttribute('data-access')}"/>\n`;
+            if (isStatic) {
+                xml += '        <Static/>\n';
+            }
+            if (isReadonly) {
+                xml += '        <Readonly/>\n';
+            }
+            xml += `      </And>\n`;
+            xml += '    </Entry.Match>\n';
+            xml += '    <Entry.SortBy>\n';
+            xml += '      <Name/>\n';
+            xml += '    </Entry.SortBy>\n';
+            xml += '  </Entry>\n';
+        });
+
+        xml += '</Patterns>';
+        return xml;
     }
 
     function moveItem(e) {
@@ -102,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         destinationContainer.appendChild(target);
         target.setAttribute('draggable', destinationContainer === itemsQueue);
+        updateQueueText();
     }
 
     function handleDragStart(e) {
@@ -145,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         draggedElement.classList.remove('dragging');
         removeDragLine();
+        updateQueueText();
     }
 
     function handleDragLeave(e) {
@@ -154,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleDragEnd(e) {
         e.target.classList.remove('dragging');
         removeDragLine();
+        updateQueueText();
     }
 
     function removeDragLine() {
@@ -163,4 +281,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-
