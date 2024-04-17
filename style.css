@@ -1,10 +1,11 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body, html {
+html, body {
     height: 100%;
     background-color: #0d1b2a;
 }
@@ -13,36 +14,44 @@ body, html {
     height: 10%;
     width: 100%;
     color: white;
-    position: relative;
-    align-content: center;
+    background-color: #23395d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header {
-    position: relative;
-    align-content: center;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+.layout-container {
+    display: flex;
+    height: 90%;
+}
+
+.items-container, .file-layout, .items-queue {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
 }
 
 .items-container, .items-queue {
-    width: 50%;
-    height: 45%;
-    overflow-y: auto;
     background-color: cornflowerblue;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 5px dashed #ffffff;
+    border-right: 4px dashed #000000;
+}
+
+.file-layout {
+    background-color: midnightblue;
 }
 
 .drag-line {
-    width: 45%;
     height: 2px;
     background-color: red;
-    position: absolute;
+    width: 100%;
 }
 
 .dragging {
-    opacity: 0.5; /* Делает элемент полупрозрачным */
-    border: 2px dashed #666; /* Добавляет пунктирную рамку для выделения */
-    background-color: #f3f3f3; /* Светлый фон для лучшего визуального выделения */
+    opacity: 0.5;
+    border: 2px dashed #666;
+    background-color: #f3f3f3;
 }
