@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #0d1b2a;
+}
+
+.header-container {
+    height: 10%;
+    width: 100%;
+    color: white;
+    position: relative;
+    align-content: center;
+}
+
+.header {
+    position: relative;
+    align-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.items-container, .items-queue {
+    width: 50%;
+    height: 45%;
+    overflow-y: auto;
+    background-color: cornflowerblue;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 5px dashed #ffffff;
+}
+
+.drag-line {
+    width: 45%;
+    height: 2px;
+    background-color: red;
+    position: absolute;
+}
+
+.dragging {
+    opacity: 0.5; /* Делает элемент полупрозрачным */
+    border: 2px dashed #666; /* Добавляет пунктирную рамку для выделения */
+    background-color: #f3f3f3; /* Светлый фон для лучшего визуального выделения */
+}
